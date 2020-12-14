@@ -1,0 +1,16 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.silicon2086.club;
+    root /usr/share/nginx/html;
+    location / {
+        proxy_ssl_server_name on;
+        proxy_pass https://imeizi.me;
+        proxy_set_header Accept-Encoding '';
+        #sub_filter '' 'www.silicon2086.club';
+        sub_filter_once off;
+    }
+    
+    location = /robots.txt {
+    }
+}
